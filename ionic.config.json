@@ -1,0 +1,7 @@
+{
+  "name": "signature-app",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
