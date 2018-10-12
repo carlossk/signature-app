@@ -1,17 +1,39 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-title>Signature</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <div class="title">Please draw your Signature</div>
+  <ion-row [ngClass]="{'drawing-active': isDrawing}">
+    <ion-col></ion-col>
+    <ion-col>
+      <signature-pad [options]="signaturePadOptions" (onBeginEvent)="drawStart()" (onEndEvent)="drawComplete()"></signature-pad>
+    </ion-col>
+    <ion-col></ion-col>
+
+  </ion-row>
+  <ion-row>
+      <ion-col></ion-col>
+    <ion-col>
+        <button ion-button  color="primary" (click)="clearPad()">Clear</button>
+
+    </ion-col>
+    <ion-col>
+        <button ion-button  color="secondary" (click)="savePad()">Save</button>
+
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
+
+  <ion-row>
+
+    <ion-col width-80>
+      <img [src]="signature"/>
+    </ion-col>
+    <ion-col></ion-col>
+  </ion-row>
+
 </ion-content>
